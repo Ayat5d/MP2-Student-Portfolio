@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A modern student portfolio website built with HTML and Tailwind CSS.">
+  <title>Student Portfolio | CSE Student</title>
+
+  <!-- Tailwind CSS CDN: no installation required for this assignment -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#0b1220",
+            panel: "#111c2e",
+            accent: "#38bdf8",
+            mint: "#5eead4"
+          },
+          fontFamily: {
+            sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #0b1220; }
+    .hero-glow {
+      background:
+        radial-gradient(circle at 78% 28%, rgba(56,189,248,.16), transparent 28%),
+        radial-gradient(circle at 15% 75%, rgba(94,234,212,.10), transparent 25%);
+    }
+    .grid-pattern {
+      background-image: linear-gradient(rgba(148,163,184,.055) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(148,163,184,.055) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-slate-100 antialiased">
+  <!-- Navigation bar -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-ink/90 backdrop-blur-lg">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation">
+      <a href="#home" class="text-xl font-black tracking-tight">
+        <span class="text-accent">&lt;</span>Portfolio<span class="text-accent">/&gt;</span>
+      </a>
+
+      <!-- Desktop navigation links -->
+      <div class="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
+        <a class="transition hover:text-accent" href="#home">Home</a>
+        <a class="transition hover:text-accent" href="#about">About</a>
+        <a class="transition hover:text-accent" href="#skills">Skills</a>
+        <a class="transition hover:text-accent" href="#projects">Projects</a>
+        <a class="rounded-full bg-accent px-5 py-2.5 font-bold text-ink transition hover:bg-mint" href="#contact">Contact Me</a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button id="menu-button" class="rounded-lg border border-white/15 p-2 text-slate-100 transition hover:bg-white/10 md:hidden"
+              type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile navigation links -->
+    <div id="mobile-menu" class="hidden border-t border-white/10 bg-ink px-5 py-4 md:hidden">
+      <div class="flex flex-col gap-4 text-sm font-medium text-slate-300">
+        <a class="mobile-link transition hover:text-accent" href="#home">Home</a>
+        <a class="mobile-link transition hover:text-accent" href="#about">About</a>
+        <a class="mobile-link transition hover:text-accent" href="#skills">Skills</a>
+        <a class="mobile-link transition hover:text-accent" href="#projects">Projects</a>
+        <a class="mobile-link font-bold text-accent" href="#contact">Contact Me →</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero section -->
+    <section id="home" class="hero-glow grid-pattern relative overflow-hidden">
+      <div class="mx-auto grid min-h-[650px] max-w-6xl items-center gap-14 px-5 py-20 md:grid-cols-[1.15fr_.85fr] lg:px-8 lg:py-28">
+        <div>
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-xs font-semibold tracking-wide text-accent">
+            <span class="h-2 w-2 rounded-full bg-mint"></span>
+            CSE STUDENT · CREATIVE LEARNER
+          </div>
+          <p class="mb-3 text-lg font-medium text-slate-400">Hello, I'm Ayat Ullah</p>
+          <h1 class="max-w-2xl text-5xl font-black leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
+            A future
+            <span class="bg-gradient-to-r from-accent to-mint bg-clip-text text-transparent">developer.</span>
+          </h1>
+          <p class="mt-7 max-w-xl text-base leading-8 text-slate-400 sm:text-lg">
+          I am a second-year Computer Science and Engineering student
+          at International Islamic University Chittagong (IIUC).
+          I am passionate about programming, web development,
+          and exploring new technologies.
+           </p>
+          <div class="mt-9 flex flex-wrap gap-4">
+            <a href="#projects" class="rounded-full bg-accent px-7 py-3.5 text-sm font-extrabold text-ink shadow-lg shadow-sky-500/20 transition hover:-translate-y-1 hover:bg-mint">
+              Explore My Work <span aria-hidden="true">↗</span>
+            </a>
+            <a href="#about" class="rounded-full border border-white/20 px-7 py-3.5 text-sm font-bold text-white transition hover:border-accent hover:text-accent">
+              More About Me
+            </a>
+          </div>
+          <div class="mt-14 flex flex-wrap gap-x-8 gap-y-4 border-t border-white/10 pt-7 text-sm text-slate-400">
+            <span><strong class="text-white">01.</strong> Curious mind</span>
+            <span><strong class="text-white">02.</strong> Continuous learning</span>
+            <span><strong class="text-white">03.</strong> Creative thinking</span>
+          </div>
+        </div>
+
+        <!-- Decorative profile card -->
+        <div class="relative mx-auto w-full max-w-sm">
+          <div class="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-accent/20 to-mint/10 blur-2xl"></div>
+          <div class="relative rounded-[2rem] border border-white/10 bg-panel/90 p-6 shadow-2xl shadow-black/30">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-[.2em] text-slate-500">Student profile</span>
+              <span class="rounded-full border border-mint/30 bg-mint/10 px-3 py-1 text-xs font-semibold text-mint">Learning</span>
+            </div>
+            
+         <!-- Personal profile photograph -->
+        <div class="my-9 flex h-72 items-center justify-center overflow-hidden rounded-2xl bg-[#06b6d4]">
+          <img
+            src="./image/profile.jpg.jpeg"
+            alt="Ayat Ullah - CSE Student"
+            class="h-full w-full object-contain object-center"
+            >
+        </div>
+
+            <h2 class="text-2xl font-extrabold">The Journey Starts Here.</h2>
+            <p class="mt-2 text-sm leading-6 text-slate-400">Turning ideas into skills, and skills into meaningful projects.</p>
+            <div class="mt-6 grid grid-cols-2 gap-3">
+              <div class="rounded-xl bg-white/5 p-4">
+                <p class="text-2xl font-black text-accent">01</p>
+                <p class="mt-1 text-xs text-slate-400">Curiosity</p>
+              </div>
+              <div class="rounded-xl bg-white/5 p-4">
+                <p class="text-2xl font-black text-mint">∞</p>
+                <p class="mt-1 text-xs text-slate-400">Possibilities</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About section -->
+    <section id="about" class="border-t border-white/5 bg-[#0e1828] py-24">
+      <div class="mx-auto max-w-6xl px-5 lg:px-8">
+        <div class="mb-12 max-w-2xl">
+          <p class="mb-3 text-xs font-bold uppercase tracking-[.25em] text-accent">A little introduction</p>
+          <h2 class="text-3xl font-black tracking-tight sm:text-4xl">About <span class="text-accent">Me</span></h2>
+          <p class="mt-4 leading-8 text-slate-400">I believe every expert starts as a beginner. I enjoy learning how things work and using that knowledge to create something valuable.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="rounded-2xl border border-white/10 bg-panel p-7 transition duration-300 hover:-translate-y-2 hover:border-accent/50">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-2xl text-accent" aria-hidden="true">⌘</div>
+            <h3 class="text-lg font-bold">My Background</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-400">I study Computer Science and Engineering and am developing a strong foundation in programming and web technologies.</p>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-panel p-7 transition duration-300 hover:-translate-y-2 hover:border-accent/50">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-mint/10 text-2xl text-mint" aria-hidden="true">✦</div>
+            <h3 class="text-lg font-bold">My Interests</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-400">I am interested in web development, logical problem-solving, modern technology, and exploring new ideas.</p>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-panel p-7 transition duration-300 hover:-translate-y-2 hover:border-accent/50">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-400/10 text-2xl text-violet-300" aria-hidden="true">↗</div>
+            <h3 class="text-lg font-bold">My Goal</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-400">My goal is to keep improving, gain practical experience, and build digital solutions that make a difference.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills section -->
+    <section id="skills" class="py-24">
+      <div class="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-2 md:items-center lg:px-8">
+        <div>
+          <p class="mb-3 text-xs font-bold uppercase tracking-[.25em] text-accent">What I'm learning</p>
+          <h2 class="text-3xl font-black tracking-tight sm:text-4xl">Skills & <span class="text-accent">Technologies</span></h2>
+          <p class="mt-5 max-w-lg leading-8 text-slate-400">These are some of the technologies and core skills I am exploring as I grow as a CSE student</p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="rounded-2xl border border-white/10 bg-panel p-5"><p class="text-2xl">🌐</p><h3 class="mt-3 font-bold">HTML5</h3><p class="mt-1 text-xs text-slate-500">Web structure</p></div>
+          <div class="rounded-2xl border border-white/10 bg-panel p-5"><p class="text-2xl">🎨</p><h3 class="mt-3 font-bold">Tailwind CSS</h3><p class="mt-1 text-xs text-slate-500">Responsive styling</p></div>
+          <div class="rounded-2xl border border-white/10 bg-panel p-5"><p class="text-2xl">💻</p><h3 class="mt-3 font-bold">C++</h3><p class="mt-1 text-xs text-slate-500">Programming basics</p></div>
+          <div class="rounded-2xl border border-white/10 bg-panel p-5"><p class="text-2xl">🧩</p><h3 class="mt-3 font-bold">Problem Solving</h3><p class="mt-1 text-xs text-slate-500">Logical thinking</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects section -->
+    <section id="projects" class="border-y border-white/5 bg-[#0e1828] py-24">
+      <div class="mx-auto max-w-6xl px-5 lg:px-8">
+        <div class="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div>
+            <h2 class="text-3xl font-black tracking-tight sm:text-4xl">My <span class="text-accent">Projects</span></h2>
+          </div>
+          <p class="max-w-md text-sm leading-7 text-slate-400">A few example projects that represent the kind of work I want to create.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="group overflow-hidden rounded-2xl border border-white/10 bg-panel transition duration-300 hover:-translate-y-2 hover:border-accent/50">
+            <div class="flex h-44 items-center justify-center bg-gradient-to-br from-sky-500/20 to-indigo-500/10 text-5xl transition group-hover:scale-[1.02]" aria-hidden="true">📚</div>
+            <div class="p-6">
+              <p class="text-xs font-bold uppercase tracking-wider text-accent">Web design</p>
+              <h3 class="mt-2 text-xl font-bold">Student Learning Portal</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-400">A simple portal concept for organizing courses, learning resources, and student feedback.</p>
+              <span class="mt-5 inline-block text-sm font-bold text-slate-300">HTML · Tailwind CSS</span>
+            </div>
+          </article>
+          <article class="group overflow-hidden rounded-2xl border border-white/10 bg-panel transition duration-300 hover:-translate-y-2 hover:border-accent/50">
+            <div class="flex h-44 items-center justify-center bg-gradient-to-br from-emerald-500/20 to-teal-500/10 text-5xl transition group-hover:scale-[1.02]" aria-hidden="true">✓</div>
+            <div class="p-6">
+              <p class="text-xs font-bold uppercase tracking-wider text-mint">Productivity</p>
+              <h3 class="mt-2 text-xl font-bold">Task Manager</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-400">A clean interface concept for keeping track of everyday tasks and personal goals.</p>
+              <span class="mt-5 inline-block text-sm font-bold text-slate-300">HTML · CSS · JavaScript</span>
+            </div>
+          </article>
+          <article class="group overflow-hidden rounded-2xl border border-white/10 bg-panel transition duration-300 hover:-translate-y-2 hover:border-accent/50">
+            <div class="flex h-44 items-center justify-center bg-gradient-to-br from-violet-500/20 to-fuchsia-500/10 text-5xl transition group-hover:scale-[1.02]" aria-hidden="true">⌘</div>
+            <div class="p-6">
+              <p class="text-xs font-bold uppercase tracking-wider text-violet-300">Personal brand</p>
+              <h3 class="mt-2 text-xl font-bold">Personal Portfolio</h3>
+              <p class="mt-3 text-sm leading-6 text-slate-400">The portfolio you are viewing: a responsive place to introduce yourself and showcase your work.</p>
+              <span class="mt-5 inline-block text-sm font-bold text-slate-300">HTML · Tailwind CSS</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact section -->
+    <section id="contact" class="py-24">
+      <div class="mx-auto max-w-4xl px-5 text-center lg:px-8">
+        <p class="mb-3 text-xs font-bold uppercase tracking-[.25em] text-accent">Let's connect</p>
+        <h2 class="text-3xl font-black tracking-tight sm:text-5xl">Have an idea? <span class="text-accent">Let's talk.</span></h2>
+        <p class="mx-auto mt-5 max-w-xl leading-8 text-slate-400">I am always interested in learning, collaborating, and connecting with people who love technology.</p>
+
+        <!-- Front-end demo form: displays a message; it does not send data to a server -->
+        <form id="contact-form" class="mx-auto mt-10 max-w-xl rounded-2xl border border-white/10 bg-panel p-6 text-left sm:p-8">
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="name" class="mb-2 block text-sm font-semibold text-slate-300">Your name</label>
+              <input id="name" name="name" type="text" required placeholder="Enter your name"
+                     class="w-full rounded-xl border border-white/10 bg-ink px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-accent">
+            </div>
+            <div>
+              <label for="email" class="mb-2 block text-sm font-semibold text-slate-300">Email address</label>
+              <input id="email" name="email" type="email" required placeholder="Enter your email address"
+                     class="w-full rounded-xl border border-white/10 bg-ink px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-accent">
+            </div>
+          </div>
+          <div class="mt-5">
+            <label for="message" class="mb-2 block text-sm font-semibold text-slate-300">Message</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Write your message..."
+                      class="w-full resize-y rounded-xl border border-white/10 bg-ink px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-accent"></textarea>
+          </div>
+          <button type="submit" class="mt-6 w-full rounded-xl bg-accent px-6 py-3.5 text-sm font-extrabold text-ink transition hover:bg-mint sm:w-auto">
+            Send Message <span aria-hidden="true">→</span>
+          </button>
+          <p id="form-status" class="mt-4 text-sm text-mint" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-[#080e19] py-8">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 text-center sm:flex-row sm:text-left lg:px-8">
+      <a href="#home" class="font-black tracking-tight"><span class="text-accent">&lt;</span>Portfolio<span class="text-accent">/&gt;</span></a>
+      <p class="text-xs text-slate-500">© <span id="year"></span> Student Portfolio. Built with HTML & Tailwind CSS.</p>
+      <a href="#home" class="text-sm font-semibold text-slate-400 transition hover:text-accent">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Open and close the mobile navigation menu.
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuButton.addEventListener("click", function () {
+      const isClosed = mobileMenu.classList.toggle("hidden");
+      menuButton.setAttribute("aria-expanded", String(!isClosed));
+    });
+
+    // Close the mobile menu after a navigation link is selected.
+    document.querySelectorAll(".mobile-link").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mobileMenu.classList.add("hidden");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Show the current year automatically in the footer.
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Demonstration only: this form does not send information to a server.
+    const contactForm = document.getElementById("contact-form");
+    const formStatus = document.getElementById("form-status");
+
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const visitorName = document.getElementById("name").value.trim();
+      formStatus.textContent = "Thank you, " + visitorName + "! Your message has been received successfully.";
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
